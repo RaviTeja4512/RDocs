@@ -177,7 +177,7 @@
                     }
                     tab3.click(XeroxRPDLocators.SideNote);
                     String s=tab3.locator(XeroxRPDLocators.SideNote1).textContent();
-                    System.out.println(s+"");
+                    System.out.println(s);
                     tab3.click(XeroxRPDLocators.ReplyToDocument);
                     tab3.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG3);
                     tab3.fill(XeroxRPDLocators.Message, XeroxRPD.MSG3);
