@@ -109,7 +109,7 @@
                         tab1.click(XeroxRPDLocators.Send);
                         tab1.click(XeroxRPDLocators.close);
                     } catch (Exception e) {
-                        System.out.println("Failed to load document");
+                        System.out.println("Failed to load document test");
                     }
 
                 }
