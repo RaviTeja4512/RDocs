@@ -94,19 +94,24 @@
                     download.saveAs(downloadPath);
                     String filePath = "file:///" + downloadPath.toAbsolutePath().toString().replace("\\", "/");
                     tab1 = context.newPage();
-                    for (int j = 1; j <= 8; j++)
-                    {
-                        tab1.click(XeroxRPDLocators.dropdown);
-                        tab1.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                    try{
+                        for (int j = 1; j <= 8; j++)
+                        {
+                            tab1.click(XeroxRPDLocators.dropdown);
+                            tab1.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                        }
+                        tab1.click(XeroxRPDLocators.SideNote);
+                        String s=tab1.locator(XeroxRPDLocators.SideNote1).textContent();
+                        System.out.println(s);
+                        tab1.click(XeroxRPDLocators.ReplyToDocument);
+                        tab1.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG1);
+                        tab1.fill(XeroxRPDLocators.Message, XeroxRPD.MSG1);
+                        tab1.click(XeroxRPDLocators.Send);
+                        tab1.click(XeroxRPDLocators.close);
+                    } catch (Exception e) {
+                        System.out.println("Failed to load document");
                     }
-                    tab1.click(XeroxRPDLocators.SideNote);
-                    String s=tab1.locator(XeroxRPDLocators.SideNote1).textContent();
-                    System.out.println(s);
-                    tab1.click(XeroxRPDLocators.ReplyToDocument);
-                    tab1.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG1);
-                    tab1.fill(XeroxRPDLocators.Message, XeroxRPD.MSG1);
-                    tab1.click(XeroxRPDLocators.Send);
-                    tab1.click(XeroxRPDLocators.close);
+
                 }
                 else if (i == 2) {
                     Download download = page.waitForDownload(() -> page.click(XeroxLogin.run));
@@ -132,18 +137,23 @@
                     page.bringToFront();
                     tab2.fill("//*[@class='RobotoFont form-control input_pass']", passcode);
                     tab2.click("//*[text()='OK']");
-                    for (int j = 1; j <= 8; j++)
-                    {
-                        tab2.click(XeroxRPDLocators.dropdown);
-                        tab2.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                    try{
+                        for (int j = 1; j <= 8; j++)
+                        {
+                            tab2.click(XeroxRPDLocators.dropdown);
+                            tab2.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                        }
+                        String s=tab2.locator(XeroxRPDLocators.SideNote1).textContent();
+                        System.out.println(s);
+                        tab2.click(XeroxRPDLocators.ReplyToDocument);
+                        tab2.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG2);
+                        tab2.fill(XeroxRPDLocators.Message, XeroxRPD.MSG2);
+                        tab2.click(XeroxRPDLocators.Send);
+                        tab2.click(XeroxRPDLocators.close);
+                    } catch (Exception e) {
+                        System.out.println("Failed to load document");
                     }
-                    String s=tab2.locator(XeroxRPDLocators.SideNote1).textContent();
-                    System.out.println(s);
-                    tab2.click(XeroxRPDLocators.ReplyToDocument);
-                    tab2.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG2);
-                    tab2.fill(XeroxRPDLocators.Message, XeroxRPD.MSG2);
-                    tab2.click(XeroxRPDLocators.Send);
-                    tab2.click(XeroxRPDLocators.close);
+
                 }
                 else {
                     Download download = page.waitForDownload(() -> page.click(XeroxLogin.run));
@@ -170,19 +180,24 @@
                     page.bringToFront();
                     tab3.fill("//*[@class='RobotoFont form-control input_pass']", passcode);
                     tab3.click("//*[text()='OK']");
-                    for (int j = 1; j <= 8; j++)
-                    {
-                        tab3.click(XeroxRPDLocators.dropdown);
-                        tab3.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                    try{
+                        for (int j = 1; j <= 8; j++)
+                        {
+                            tab3.click(XeroxRPDLocators.dropdown);
+                            tab3.locator("(//button[@class='RobotoFont dropdown-item'])[" + i + "]").click();
+                        }
+                        tab3.click(XeroxRPDLocators.SideNote);
+                        String s=tab3.locator(XeroxRPDLocators.SideNote1).textContent();
+                        System.out.println(s);
+                        tab3.click(XeroxRPDLocators.ReplyToDocument);
+                        tab3.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG3);
+                        tab3.fill(XeroxRPDLocators.Message, XeroxRPD.MSG3);
+                        tab3.click(XeroxRPDLocators.Send);
+                        tab3.click(XeroxRPDLocators.close);
+                    } catch (Exception e) {
+                        System.out.println("Failed to load document");
                     }
-                    tab3.click(XeroxRPDLocators.SideNote);
-                    String s=tab3.locator(XeroxRPDLocators.SideNote1).textContent();
-                    System.out.println(s);
-                    tab3.click(XeroxRPDLocators.ReplyToDocument);
-                    tab3.fill(XeroxRPDLocators.Subject, XeroxRPD.MSG3);
-                    tab3.fill(XeroxRPDLocators.Message, XeroxRPD.MSG3);
-                    tab3.click(XeroxRPDLocators.Send);
-                    tab3.click(XeroxRPDLocators.close);
+
                 }
 
             }
