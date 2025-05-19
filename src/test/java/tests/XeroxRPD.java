@@ -47,6 +47,7 @@
                     page.bringToFront();
                     page.locator(XeroxLogin.protect).click();
                     page.locator(XeroxLogin.dropdown).click();
+                    Thread.sleep(2000);
                     Page page1 = page.waitForPopup(() -> page.locator(XeroxLogin.box).click());
                     page1.waitForLoadState();
                     page1.fill(XeroxLogin.boxUsername, prop.getProperty("xerox_username"));
