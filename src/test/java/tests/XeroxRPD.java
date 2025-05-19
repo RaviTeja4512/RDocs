@@ -63,7 +63,7 @@
                     } else if (i == 3) {
                         page.locator(XeroxLogin.restrictViewers).click();
                     } else
-                        System.out.println("Selected Track Viewers");
+                        System.out.println("Selected Track  Viewers");
                     if (i == 1)
                         page.locator(XeroxLogin.includeNote).fill(XeroxRPD.MSG1);
                     else if (i == 2)
