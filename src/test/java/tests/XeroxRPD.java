@@ -8,12 +8,13 @@
     import locators.XeroxLogin;
     import locators.XeroxRPDLocators;
     import org.testng.annotations.Test;
-
-    import java.nio.file.Files;
     import java.nio.file.Path;
     import java.nio.file.Paths;
+    import java.time.LocalDateTime;
+    import java.time.format.DateTimeFormatter;
     import java.util.Properties;
     import java.util.Random;
+    import static locators.XeroxLogin.timestamp;
 
     public class XeroxRPD extends BaseTest
     {
@@ -29,6 +30,7 @@
         @Test
         public void xerox() throws Exception {
             try {
+                String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss"));
                 page.setDefaultTimeout(150000);
                 Properties prop = propertiesCode();
                 ReadersPage rp = new ReadersPage();
@@ -39,6 +41,8 @@
                 popup.click(XeroxLogin.next);
                 popup.fill(XeroxLogin.password, prop.getProperty("xerox_password"));
                 popup.click(XeroxLogin.submit);
+                popup.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("C:\\Users\\rpl02\\OneDrive\\Documents\\Xerox errors", "screenshot "+timestamp+".png")));
+                Thread.sleep(3000);
                 for (int i = 1; i <= 3; i++) {
                     page.bringToFront();
                     page.locator(XeroxLogin.protect).click();
@@ -200,7 +204,7 @@
 
             }
             catch(Exception e) {
-                page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("C:\\Users\\rpl02\\OneDrive\\Documents\\Xerox errors", "screenshot"+RandomNum+".png")));
+                page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("C:\\Users\\rpl02\\OneDrive\\Documents\\Xerox errors", "screenshot "+timestamp+".png")));
             }
 
 
