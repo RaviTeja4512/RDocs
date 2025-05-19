@@ -8,7 +8,7 @@ public class XeroxLogin {
   public static String submit ="//*[@type='submit']";
   public static String protect ="(//*[@alt='Workflow Icon'])[7]";
   public static String dropdown ="//*[@class='filter-option ng-star-inserted']";
-  public static String box ="(//*[text()='Box™'])";
+  public static String box ="//*[contains(text(),'Box')]";
   public static String boxUsername ="//*[@id='login']";
   public static String boxPassword ="//*[@id='password']";
   public static String boxLogin ="//*[@name='login_submit']";
